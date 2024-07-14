@@ -1,36 +1,51 @@
-let userinput = document.getElementById("lol");
-let list = document.getElementById("iop");
+let userInput = document.getElementById("task-input");
+
+let taskList = document.getElementById("task-list");
 
 function addTask() {
-    if (userinput.value === '') {
-        alert("Write something please");
-    } else {
+    if (userInput.value.trim() === '') {
+        alert("Please write something.");
+    } 
+else {
         let li = document.createElement("li");
-        li.innerHTML = userinput.value;
-        list.appendChild(li);
+        li.textContent = userInput.value;
+        li.addEventListener('click', toggleTask);
         let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
+        span.textContent = "\u00d7";
+        span.addEventListener('click', removeTask);
         li.appendChild(span);
+        taskList.appendChild(li);
+        saveData();
     }
-    userinput.value = "";
+    userInput.value = "";
 }
 
-list.addEventListener("click", function (e) {
-    if (e.target.tagName === "LI") {
-        e.target.classList.toggle("op");
-        savedata();
-    } else if (e.target.tagName === "SPAN") {
-        e.target.parentElement.remove();
-        savedata();
+function toggleTask(event) {
+    event.target.classList.toggle("completed");
+    saveData();
+}
+
+function removeTask(event) {
+    event.stopPropagation();
+    event.target.parentElement.remove();
+    saveData();
+}
+
+function saveData() {
+    localStorage.setItem("tasks", taskList.innerHTML);
+}
+
+function loadTasks() {
+    let data = localStorage.getItem("tasks");
+    if (data) {
+        taskList.innerHTML = data;
+
+        Array.from(taskList.children).forEach(task => {
+            task.querySelector('span').addEventListener('click', removeTask);
+            task.addEventListener('click', toggleTask);
+        });
     }
-}, false);
-
-function savedata() {
-    localStorage.setItem("data", list.innerHTML);
 }
 
-function showtask() {
-    list.innerHTML = localStorage.getItem("data");
-}
 
-showtask();
+loadTasks();
