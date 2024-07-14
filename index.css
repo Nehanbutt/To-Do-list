@@ -1,121 +1,110 @@
-*{
+* {
     margin: 0;
-    padding: 0; 
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-   box-sizing: border-box;
-   font-family: Arial, Helvetica, sans-serif;
-}
-.first{
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(135deg,#174bb3,#91f3f9e7);
-    padding: 0.1px;
-}
-.sec{
-    margin-top: 10px;
-    max-width: 470px;
-    background: #fff;
-    margin:100px auto 20px;
-    padding: 40px ,30px,70px;
-    border-radius: 10px;
-    min-height: 150px;
-    
-}
-.sec h2{
-    color:#002765 ;
-    display:flex;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-left: 140px ;
 
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #174bb3, #91f3f9e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
 }
-.sec img{
-    width: 39px;
-    margin-left: 25px;
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
 }
-.row{
-    width: 350px;
-    display: flex;  
+
+.todo-app {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app h2 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.todo-app img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+.input-row {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     background: #edeef0;
     border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
-    margin-left: 50px;
-    margin-top: 25px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
 }
-input{
+
+.input-row input {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px;
-    width: 150px;
-    font-size: 14px;
-    margin-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
     font-family: cursive;
+    font-weight: bold;
 }
-button{
+
+.input-row button {
     border: none;
     outline: none;
-    padding: 15px 25px;
+    padding: 10px 20px;
     background: #ff5945;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 30px;
+    transition: background 0.3s ease;
 }
-button:active{
-    background-color: rgb(122, 215, 93);
 
+.input-row button:hover {
+    background: #ff4029;
 }
-ul li{
+
+ul {
     list-style-type: none;
-    font-size: 20px;
-    padding: 12px 10px 12px 50px ;
-    user-select: none;
+}
+
+ul li {
+    font-size: 18px;
+    padding: 10px 20px;
+    background: #6d95d6a9;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+ul li.completed {
+    text-decoration: line-through;
+    background: #d3d3d3;
+}
+
+ul li span {
     cursor: pointer;
-    position: relative;
-    margin-left: 15px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    background-color: #6d95d6a9;
-    border-radius: 50px;
-    
-}
-ul li::before{
-    content: "";
-    position: absolute;
-    height: 25px;
-    width: 25px;
+    padding: 5px 10px;
     border-radius: 50%;
-    background-image: url(images/unchecked.png);
-    background-size: cover;
-    background-position: center;
-    margin-left: -30px;
-    margin-top: -1px;
+    transition: background 0.3s ease;
 }
-ul li.op{
-    color:#555 ;
-text-decoration: line-through;
-}
-ul li.op::before{
-    background-image: url(images/checked.png);
-}
-ul li span{
-    position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    color: #555;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50%;
-}
-ul li span:hover{
+
+ul li span:hover {
     background: #edeef0;
 }
