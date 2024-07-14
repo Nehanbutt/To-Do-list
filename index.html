@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java prac</title>
+    <title>To-Do List</title>
     <link rel="icon" href="images/avatar - Copy.png">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="first">
-        <div class="sec">
-            <h2 >To-Do-List<img src="images/icon.png" ></h2>
-            <div class="row">
-                <input type="text" id="lol" placeholder="Add your text">
-                <button onclick="addTask()">ADD</button>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List<img src="images/icon.png" alt="icon"></h2>
+            <div class="input-row">
+                <input type="text" id="task-input" placeholder="Add your task">
+                <button onclick="addTask()">Add</button>
             </div>
-            <ul id="iop">   
-            </ul>
+            <ul id="task-list"></ul>
         </div>
     </div>
-    <script src="INDEX.JS"></script>
+    <script src="index.js"></script>
 </body>
 </html>
